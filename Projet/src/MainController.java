@@ -15,13 +15,15 @@ public class MainController {
 
         // process the file, and limit periods to given time interval
         var teamsProcessor = new TEAMSProcessor(selectedFile,"19/01/2021 à 10:15:00", "19/01/2021 à 11:45:00");
+        teamsProcessor.setDisplayer(new DisplayerHTML());
 /*
         var allpeople = teamsProcessor.get_allpeople();
         for (People people : allpeople) {
             System.out.println( people );
         }
 */
-        System.out.println( teamsProcessor.toHTMLCode() );
+
+        System.out.println( teamsProcessor.display() );
 
     }
 }
