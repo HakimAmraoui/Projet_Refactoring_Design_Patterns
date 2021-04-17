@@ -46,12 +46,21 @@ public class TEAMSAttendanceListAnalyzer {
 
     public void setStartAndStop(String start, String stop) {
         Collection<People> allpeople = _peopleList.values();
+        Iterator<People> iterator = allpeople.iterator();
+        while (iterator.hasNext()) {
+            People person = iterator.next();
+            person.forceEndTimeAt(stop);
+            person.forceStartTimeAt(start);
+        }
+/*
         for (People person : allpeople) {
             // IMPORTANT : set ending time before starting time, because it can't be possible
             // to test if a period is before starting time if it has no ending time
             person.forceEndTimeAt(stop);
             person.forceStartTimeAt(start);
+
         }
+        */
     }
 
 }
