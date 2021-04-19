@@ -11,8 +11,9 @@ public class TEAMSProcessor {
     private String _startTime;
     private String _endTime;
     private Displayer displayer;
+    private Sorter sorter;
 
-    public TEAMSProcessor(File _file, String _start, String _stop) {
+    public TEAMSProcessor(File _file, String _start, String _stop, Sorter sorter) {
         /*
          csv file to read
          start time of the course
@@ -20,6 +21,8 @@ public class TEAMSProcessor {
         */
         this._startTime = _start;
         this._endTime = _stop;
+
+        this.sorter = sorter;
 
         // load CSV file
         this._fileName = _file.getName();
@@ -32,12 +35,15 @@ public class TEAMSProcessor {
             var filter = new TEAMSAttendanceListAnalyzer(lines);
             // cut periods before start time and after end time
             filter.setStartAndStop(_start, _stop);
-            // sort
-            List<People> peopleByDuration = new ArrayList<>(filter.get_peopleList().values());
-            Collections.sort(peopleByDuration);
             // init the people collection
-            this._allpeople = peopleByDuration;//filter.get_peopleList().values();
+            this._allpeople = new ArrayList<>(filter.get_peopleList().values());
         }
+    }
+
+    public void sort() {
+        List<People> peopleToSort = (List<People>) this._allpeople;
+        sorter.sort(peopleToSort);
+        this._allpeople = peopleToSort;
     }
 
     public Collection<People> get_allpeople() {
@@ -50,5 +56,9 @@ public class TEAMSProcessor {
 
     public void setDisplayer(Displayer displayer) {
         this.displayer = displayer;
+    }
+
+    public void setSorter(Sorter sorter) {
+        this.sorter = sorter;
     }
 }
