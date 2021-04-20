@@ -4,7 +4,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.Locale;
 
-public class People implements Comparable<People> {
+// implements Comparable<People>
+public class People {
 
     private final String _name;
     private final String _id;
@@ -163,10 +164,10 @@ public class People implements Comparable<People> {
         return ( this._periodList.getFirst().get_start().format(formatter.withLocale(Locale.FRANCE)) );
     }
 
-    @Override
-    public int compareTo(People o) {
-        return (int)(this.getTotalAttendanceDuration()-o.getTotalAttendanceDuration());
-    }
+    // @Override
+    // public int compareTo(People o) {
+    //     return (int)(this.getTotalAttendanceDuration()-o.getTotalAttendanceDuration());
+    // }
 
     public boolean isOutOfPeriod() {
         return this._periodList.isEmpty();
