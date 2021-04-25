@@ -9,6 +9,10 @@ public class MainController {
 
     public void sayHelloWorld(ActionEvent actionEvent) {
 
+        boolean showName = true;
+        boolean showId = false;
+        boolean showTime = true;
+
 
         FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(null);
@@ -18,6 +22,20 @@ public class MainController {
         teamsProcessor.setDisplayer(new DisplayerHTML());
         teamsProcessor.setSorter(new IdSorter());
         teamsProcessor.sort();
+
+        DataExtractor dataExtractor = null;
+
+        if(showName){
+            dataExtractor = new NameExtractor(dataExtractor);
+        }
+        if(showId){
+            dataExtractor = new IdExtractor(dataExtractor);
+        }
+        if(showTime){
+            dataExtractor = new TimeExtractor(dataExtractor);
+        }
+
+        People.dataExtractor = dataExtractor;
 /*
         var allpeople = teamsProcessor.get_allpeople();
         for (People people : allpeople) {
