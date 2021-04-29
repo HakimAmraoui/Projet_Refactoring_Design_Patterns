@@ -2,5 +2,13 @@ import java.util.Collection;
 
 public abstract class Displayer {
 
-    public abstract String display(Collection<People> _allpeople, String _fileName, String _startTime, String _endTime);
+    protected String outputDir;
+    protected String fileName;
+
+    public Displayer(String outputDir, String fileName) {
+        this.outputDir = outputDir;
+        this.fileName = fileName;
+    }
+
+    public abstract String display(Collection<People> _allpeople, String _fileName, String _courseName, String _startTime, String _endTime);
 }

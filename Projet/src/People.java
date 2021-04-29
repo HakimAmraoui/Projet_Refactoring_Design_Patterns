@@ -1,5 +1,3 @@
-import java.time.Duration;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -7,8 +5,7 @@ import java.util.Locale;
 
 // implements Comparable<People>
 public class People {
-
-    public static DataExtractor dataExtractor;
+    private static Extractor extractor;
 
     private final String _name;
     private final String _id;
@@ -113,22 +110,7 @@ public class People {
     public String getName() {
         return this._name;
     }
-
-    public String getHTMLCode() {
-
-        if ( this.isOutOfPeriod() ) return ("");
-
-        String html = "";
-        html += "<div class=\"datapeople\"> \n";
-        if(People.dataExtractor != null) {
-            html += People.dataExtractor.getHTMLCode(this);
-        }
-
-        html += "</div>\n"; // end of div datapeople
-
-        return html;
-    }
-
+    
     @Override
     public String toString() {
         return "People{" +
@@ -152,6 +134,14 @@ public class People {
 
     public boolean isOutOfPeriod() {
         return this._periodList.isEmpty();
+    }
+
+    public static Extractor getExtractor() {
+        return extractor;
+    }
+
+    public static void setExtractor(Extractor extractor) {
+        People.extractor = extractor;
     }
 
 }

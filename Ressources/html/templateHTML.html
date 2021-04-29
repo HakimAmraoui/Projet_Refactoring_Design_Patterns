@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Attendance Report
+        </title>
+        <link rel="stylesheet" media="all" href="visu.css">
+    </head>
+    <body>
+        <h1>
+            Rapport de connexion
+        </h1>
+
+        <div id="blockid">
+            <table>
+                <tr>
+                    <th>Date :</th>
+                    <td>$date</td>
+                </tr>
+                <tr>
+                    <th>Heure début :</th>
+                    <td>$startTime</td>
+                </tr>
+                <tr>
+                    <th>Heure fin :</th>
+                    <td>$endTime</td>
+                </tr>
+                <tr>
+                    <th>Cours :</th>
+                    <td>$courseName</td>
+                </tr>
+                <tr>
+                    <th>Fichier analysé :</th>
+                    <td>$fileName</td>
+                </tr>
+                <tr>
+                    <th>Nombre de connectés :</th>
+                    <td>$numberOfStudents</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Durées de connexion</h2>
+
+        <p>Pour chaque personne ci-dessous, on retrouve son temps total de connexion sur la plage déclarée du cours, ainsi qu'un graphe qui indique les périodes de connexion (en vert) et d'absence de connexion (en blanc). En pointant la souris sur une zone, une bulle affiche les instants de début et de fin de période.</p>
+
+        <div id="blockpeople">
+$blockPeople
+        </div>
+    </body>
+</html>
