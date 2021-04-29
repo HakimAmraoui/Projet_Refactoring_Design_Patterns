@@ -10,5 +10,5 @@ public abstract class Displayer {
         this.fileName = fileName;
     }
 
-    public abstract String display(Collection<People> _allpeople, String _fileName, String _courseName, String _startTime, String _endTime);
+    public abstract void display(Collection<People> _allpeople, String _fileName, String _courseName, String _startTime, String _endTime);
 }

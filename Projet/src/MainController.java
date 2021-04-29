@@ -36,7 +36,7 @@ public class MainController {
     private TextField textFieldCourseName, textFieldTimeStart, textFieldTimeEnd, textFieldOutputFileName;
 
     @FXML
-    private RadioButton buttonId, buttonName, buttonDuration;
+    private RadioButton buttonExcel, buttonId, buttonName, buttonDuration;
 
     @FXML
     private CheckBox checkboxId, checkboxName, checkboxTime;
@@ -196,7 +196,11 @@ public class MainController {
         }
         teamsProcessor.sort();
 
-        teamsProcessor.setDisplayer(new DisplayerHTML(sDirectory, inputFileName)); // Allow choice between HTML and Excel later
+        if (buttonExcel.isSelected())
+            teamsProcessor.setDisplayer(new DisplayerExcel(sDirectory, inputFileName));
+        else
+            teamsProcessor.setDisplayer(new DisplayerHTML(sDirectory, inputFileName));
+
 
         Extractor extractor = null;
 

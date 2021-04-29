@@ -50,8 +50,8 @@ public class TEAMSProcessor {
         return _allpeople;
     }
 
-    public String display() {
-        return displayer.display(_allpeople, _fileName, _courseName, _startTime, _endTime);
+    public void display() {
+        displayer.display(_allpeople, _fileName, _courseName, _startTime, _endTime);
     }
 
     public void setDisplayer(Displayer displayer) {
