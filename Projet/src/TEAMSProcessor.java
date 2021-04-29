@@ -7,12 +7,15 @@ public class TEAMSProcessor {
 
     private Collection<People> _allpeople = null;
     private String _fileName;
+    private String _courseName;
     private String _startTime;
     private String _endTime;
     private Displayer displayer;
     private Sorter sorter;
 
-    public TEAMSProcessor(File _file, String _start, String _stop) {
+    public TEAMSProcessor(File _file, String courseName, String _start, String _stop) {
+        this._courseName = courseName;
+
         /*
          csv file to read
          start time of the course
@@ -48,7 +51,7 @@ public class TEAMSProcessor {
     }
 
     public String display() {
-        return displayer.display(_allpeople, _fileName, _startTime, _endTime);
+        return displayer.display(_allpeople, _fileName, _courseName, _startTime, _endTime);
     }
 
     public void setDisplayer(Displayer displayer) {

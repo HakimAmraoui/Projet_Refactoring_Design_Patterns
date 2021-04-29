@@ -4,6 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -13,9 +14,13 @@ import java.util.Iterator;
 
 public class DisplayerHTML extends Displayer {
 
+    public DisplayerHTML(String outputDir, String fileName) {
+        super(outputDir, fileName);
+    }
+
     @Override
-    public String display(Collection<People> _allpeople, String _fileName, String _startTime, String _endTime) {
-        File htmlTemplateFile = new File("ressources/templateHTML.html");
+    public String display(Collection<People> _allpeople, String _fileName, String _courseName, String _startTime, String _endTime) {
+        File htmlTemplateFile = new File("ressources/html/templateHTML.html");
         String htmlString = null;
         try {
             htmlString = Files.readString(htmlTemplateFile.toPath());
@@ -24,7 +29,7 @@ public class DisplayerHTML extends Displayer {
         }
 
         String date = LocalDate.now().toString();
-        String courseName = "CM Bases de données et programmation Web"; // Temporary
+        String courseName = _courseName;
         Integer numberOfStudents = _allpeople.size();
 
         htmlString = htmlString.replace("$date", date);
@@ -46,7 +51,7 @@ public class DisplayerHTML extends Displayer {
                 continue;
             }
             
-            File dataPeopleTemplateFile = new File("ressources/templateDataPeople.html");
+            File dataPeopleTemplateFile = new File("ressources/html/templateDataPeople.html");
             String dataPeopleString = null;
             try {
                 dataPeopleString = Files.readString(dataPeopleTemplateFile.toPath());
@@ -97,11 +102,13 @@ public class DisplayerHTML extends Displayer {
         }
         htmlString = htmlString.replace("$blockPeople", blockPeople);
 
-        String fileName = _fileName.replace(".csv", ".html");
-        String filePath = "output/";
-        File htmlOutputFile = new File(filePath + fileName);
+        String filePath = outputDir + "/" + fileName + ".html";
+        File htmlOutputFile = new File(filePath);
         try {
-            Files.createDirectories(Paths.get(filePath));
+            Files.createDirectories(Paths.get(outputDir + "/"));
+            Files.copy(Paths.get("ressources/html/off.png"), Paths.get(outputDir + "/off.png"), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(Paths.get("ressources/html/on.png"), Paths.get(outputDir + "/on.png"), StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(Paths.get("ressources/html/visu.css"), Paths.get(outputDir + "/visu.css"), StandardCopyOption.REPLACE_EXISTING);
             htmlOutputFile.createNewFile();
             FileWriter fw = new FileWriter(htmlOutputFile, false);
             fw.write(htmlString);
