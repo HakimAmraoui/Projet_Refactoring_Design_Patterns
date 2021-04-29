@@ -4,7 +4,7 @@ body{
 	font-family: Verdana, sans-serif;
 }
 #blockpeople {
-	width: 1130px;
+	width: 1230px;
 	background-color: #fff;
 	margin-bottom: 30px;
 	padding: 10px 0;
@@ -19,13 +19,20 @@ p {
 .datapeople {
 	display: grid;
 	grid-column-gap: 5px;
-	grid-template-areas: "col1 col2 col3 col4";
+	grid-template-areas: "col0 col1 col2 col3 col4";
 	height:20px;
 	margin:0 10px;
 	border: solid 1px #fff;
 }
 .datapeople:hover {
 	border: solid 1px red;
+}
+.id {
+	grid-area: "col0";
+	width : 100px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 3px;
 }
 .name {
 	grid-area: "col1";

@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class DisplayerHTML extends Displayer {
@@ -52,13 +53,45 @@ public class DisplayerHTML extends Displayer {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
-            String nom = people.getName();
-            Long duration = people.getTotalAttendanceDuration();
-            dataPeopleString = dataPeopleString.replace("$nom", nom);
-            dataPeopleString = dataPeopleString.replace("$duration", duration.toString());
-            dataPeopleString = dataPeopleString.replace("$timeBar", timBar(people));
-            dataPeopleString = dataPeopleString.replace("$percentage", ((int)(duration/durationMaxMinutes*100)) + "%");
+
+            HashMap<String, String> data = People.getExtractor().getData(people);
+            String dataPeople = "";
+
+            if (data.containsKey("id")) {
+                String id = data.get("id");
+                dataPeople += "\t\t\t\t<div class=\"id\">\n";
+                dataPeople += ("\t\t\t\t\t" + id + "\n");
+                dataPeople += "\t\t\t\t</div>\n";
+            }
+
+            if (data.containsKey("name")) {
+                String name = data.get("name");
+                dataPeople += "\t\t\t\t<div class=\"name\">\n";
+                dataPeople += ("\t\t\t\t\t" + name + "\n");
+                dataPeople += "\t\t\t\t</div>\n";
+            }
+
+            if (data.containsKey("time")) {
+                dataPeople += "\t\t\t\t<div class=\"timebar\">\n";
+                dataPeople += (timBar(people));
+                dataPeople += "\t\t\t\t</div>\n";
+
+                Long duration = people.getTotalAttendanceDuration();
+                dataPeople += "\t\t\t\t<div class=\"duration\">\n";
+                dataPeople += ("\t\t\t\t\t" + duration.toString() + "\n");
+                dataPeople += "\t\t\t\t</div>\n";
+
+                int percentage = (int)(duration/durationMaxMinutes*100);
+                dataPeople += "\t\t\t\t<div class=\"percentd\">\n";
+                dataPeople += ("\t\t\t\t\t" + percentage + "%\n");
+                dataPeople += "\t\t\t\t</div>\n";
+            }
+
+            if (dataPeople.isBlank()) {
+                continue;
+            }
+
+            dataPeopleString = dataPeopleString.replace("$dataPeople", dataPeople);
 
             blockPeople += dataPeopleString;
         }

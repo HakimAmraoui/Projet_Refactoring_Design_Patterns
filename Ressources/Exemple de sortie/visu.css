@@ -27,6 +27,13 @@ p {
 .datapeople:hover {
 	border: solid 1px red;
 }
+.id {
+	grid-area: "col0";
+	width : 100px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 3px;
+}
 .name {
 	grid-area: "col1";
 	width : 200px;

@@ -1,16 +1,15 @@
-import javafx.event.ActionEvent;
-import javafx.scene.control.Label;
-import javafx.stage.FileChooser;
-
 import java.io.File;
 
+import javafx.event.ActionEvent;
+import javafx.stage.FileChooser;
+
 public class MainController {
-    public Label HelloWorld;
+    // public Label HelloWorld;
 
     public void sayHelloWorld(ActionEvent actionEvent) {
 
-        boolean showName = true;
-        boolean showId = false;
+        boolean showName = false;
+        boolean showId = true;
         boolean showTime = true;
 
 
@@ -23,19 +22,19 @@ public class MainController {
         teamsProcessor.sort();
         teamsProcessor.setDisplayer(new DisplayerHTML());
 
-        DataExtractor dataExtractor = null;
+        Extractor extractor = null;
 
         if(showName){
-            dataExtractor = new NameExtractor(dataExtractor);
+            extractor = new ExtractorName(extractor);
         }
         if(showId){
-            dataExtractor = new IdExtractor(dataExtractor);
+            extractor = new ExtractorId(extractor);
         }
         if(showTime){
-            dataExtractor = new TimeExtractor(dataExtractor);
+            extractor = new ExtractorTime(extractor);
         }
 
-        People.dataExtractor = dataExtractor;
+        People.setExtractor(extractor);
 
         teamsProcessor.display();
 
