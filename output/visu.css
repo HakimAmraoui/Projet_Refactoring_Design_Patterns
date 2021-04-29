@@ -1,0 +1,65 @@
+/* visu.css */
+body{
+	background-color: #ddd;
+	font-family: Verdana, sans-serif;
+}
+#blockpeople {
+	width: 1130px;
+	background-color: #fff;
+	margin-bottom: 30px;
+	padding: 10px 0;
+}
+th {
+	text-align: left;
+	padding-right: 10px;
+}
+p {
+	width:1130px;
+}
+.datapeople {
+	display: grid;
+	grid-column-gap: 5px;
+	grid-template-areas: "col1 col2 col3 col4";
+	height:20px;
+	margin:0 10px;
+	border: solid 1px #fff;
+}
+.datapeople:hover {
+	border: solid 1px red;
+}
+.name {
+	grid-area: "col1";
+	width : 200px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding-left: 3px;
+}
+.duration {
+	grid-area: "col2";
+	text-align: center;
+	width: 40px;
+	background-color: #ddd;
+}
+.percentd {
+	grid-area: "col3";
+	text-align: center;
+	width: 60px;
+	background-color: #ddd;	
+}
+.timebar {
+	grid-area: "col4";
+	width: 780px;
+	background-color: #DDD;
+	border-left: solid 2px black;
+	border-right: solid 2px black;
+}
+.timebar img {
+	padding: 0;
+	margin: 0;
+	float:left;
+
+}
+.name, .duration, .percentd {
+	vertical-align: middle;
+	line-height: 20px;
+}

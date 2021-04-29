@@ -2,7 +2,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class NameSorter extends Sorter {
+public class SorterName extends Sorter {
 
     @Override
     public void sort(List<People> peopleToSort) {

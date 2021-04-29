@@ -1,7 +1,6 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class TEAMSProcessor {
@@ -13,7 +12,7 @@ public class TEAMSProcessor {
     private Displayer displayer;
     private Sorter sorter;
 
-    public TEAMSProcessor(File _file, String _start, String _stop, Sorter sorter) {
+    public TEAMSProcessor(File _file, String _start, String _stop) {
         /*
          csv file to read
          start time of the course
@@ -21,8 +20,6 @@ public class TEAMSProcessor {
         */
         this._startTime = _start;
         this._endTime = _stop;
-
-        this.sorter = sorter;
 
         // load CSV file
         this._fileName = _file.getName();
