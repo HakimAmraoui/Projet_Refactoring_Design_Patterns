@@ -1,127 +1,63 @@
-import java.awt.Desktop;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class DisplayerHTML extends Displayer {
+public class DisplayerHTML extends Displayer{
+
+    
 
     @Override
     public String display(Collection<People> _allpeople, String _fileName, String _startTime, String _endTime) {
-        File htmlTemplateFile = new File("ressources/templateHTML.html");
-        String htmlString = null;
-        try {
-            htmlString = Files.readString(htmlTemplateFile.toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
+        String html = "<!DOCTYPE html> \n <html lang=\"fr\"> \n <head> \n <meta charset=\"utf-8\"> ";
+        html += "<title> Attendance Report </title> \n <link rel=\"stylesheet\" media=\"all\" href=\"visu.css\"> \n";
+        html += "</head> \n <body> \n ";
+        html += "<h1> Rapport de connexion </h1>\n" +
+                "\n" +
+                "<div id=\"blockid\">\n" +
+                "<table>\n" +
+                "\t<tr>\n" +
+                "\t\t<th> Date : </th>\n" +
+                "\t\t<td> " + /*this._allpeople.iterator().next().getDate() +*/ " </td>\n" +
+                "\t</tr>\n" +
+                "\t<tr>\n" +
+                "\t\t<th> Heure début : </th>\n" +
+                "\t\t<td> " + _startTime + " </td>\n" +
+                "\t</tr>\n" +
+                "\t<tr>\n" +
+                "\t\t<th> Heure fin : </th>\n" +
+                "\t\t<td> " + _endTime + " </td>\n" +
+                "\t</tr>\n" +
+                "\t<tr>\n" +
+                "\t\t<th> Cours : </th>\n" +
+                "\t\t<td> CM Bases de données et programmation Web </td>\n" +
+                "\t</tr>\n" +
+                "\t<tr>\n" +
+                "\t\t<th> Fichier analysé : </th>\n" +
+                "\t\t<td> " + _fileName + " </td>\n" +
+                "\t</tr>\n" +
+                "\t<tr>\n" +
+                "\t\t<th> Nombre de connectés : </th>\n" +
+                "\t\t<td> " + _allpeople.size() + "  </td>\n" +
+                "\t</tr>\n" +
+                "</table>\n" +
+                "</div>\n" +
+                "\n" +
+                "<h2> Durées de connexion</h2>\n" +
+                "\n" +
+                "<p> Pour chaque personne ci-dessous, on retrouve son temps total de connexion sur la plage déclarée du cours, ainsi qu'un graphe qui indique les périodes de connexion (en vert) et d'absence de connexion (en blanc). En pointant la souris sur une zone, une bulle affiche les instants de début et de fin de période. \n" +
+                "</p>";
+        html += "<div id=\"blockpeople\"> ";
+
+        // ITERATOR
+        Iterator<People> iterator = _allpeople.iterator();
+        while (iterator.hasNext()) {
+            html += iterator.next().getHTMLCode();
         }
+//        for (People people : _allpeople) {
+//
+//            html += people.getHTMLCode();
+//        }
 
-        String date = LocalDate.now().toString();
-        String courseName = "CM Bases de données et programmation Web"; // Temporary
-        Integer numberOfStudents = _allpeople.size();
-
-        htmlString = htmlString.replace("$date", date);
-        htmlString = htmlString.replace("$startTime", _startTime);
-        htmlString = htmlString.replace("$endTime", _endTime);
-        htmlString = htmlString.replace("$courseName", courseName);
-        htmlString = htmlString.replace("$fileName", _fileName);
-        htmlString = htmlString.replace("$numberOfStudents", numberOfStudents.toString());
-
-        LocalDateTime startTime = TEAMSDateTimeConverter.StringToLocalDateTime(_startTime);
-        LocalDateTime endTime = TEAMSDateTimeConverter.StringToLocalDateTime(_endTime);
-        double durationMaxMinutes = Math.abs(Duration.between(startTime, endTime).toSeconds()/60.);
-        Iterator<People> pIterator = _allpeople.iterator();
-        String blockPeople = "";
-        while (pIterator.hasNext()) {
-            People people = pIterator.next();
-
-            if (people.isOutOfPeriod()) {
-                continue;
-            }
-            
-            File dataPeopleTemplateFile = new File("ressources/templateDataPeople.html");
-            String dataPeopleString = null;
-            try {
-                dataPeopleString = Files.readString(dataPeopleTemplateFile.toPath());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            
-            String nom = people.getName();
-            Long duration = people.getTotalAttendanceDuration();
-            dataPeopleString = dataPeopleString.replace("$nom", nom);
-            dataPeopleString = dataPeopleString.replace("$duration", duration.toString());
-            dataPeopleString = dataPeopleString.replace("$timeBar", timBar(people));
-            dataPeopleString = dataPeopleString.replace("$percentage", ((int)(duration/durationMaxMinutes*100)) + "%");
-
-            blockPeople += dataPeopleString;
-        }
-        htmlString = htmlString.replace("$blockPeople", blockPeople);
-
-        String fileName = _fileName.replace(".csv", ".html");
-        String filePath = "output/";
-        File htmlOutputFile = new File(filePath + fileName);
-        try {
-            Files.createDirectories(Paths.get(filePath));
-            htmlOutputFile.createNewFile();
-            FileWriter fw = new FileWriter(htmlOutputFile, false);
-            fw.write(htmlString);
-            fw.close();
-            Desktop.getDesktop().browse(htmlOutputFile.toURI());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return htmlString;
-    }
-
-    private String timBar(People people) {
-        String html = "";
-        // duration max, in order to compute images width in percent
-        LocalDateTime startTime = TEAMSDateTimeConverter.StringToLocalDateTime(people.get_start());
-        LocalDateTime endTime = TEAMSDateTimeConverter.StringToLocalDateTime(people.get_stop());
-        double durationMaxMinutes = Math.abs(Duration.between(startTime, endTime).toSeconds()/60.);
-        LocalDateTime refTime = TEAMSDateTimeConverter.StringToLocalDateTime(people.get_start());
-        String imgTag;
-        Iterator<TEAMSPeriod> tIterator = people.get_periodList().iterator();
-        while (tIterator.hasNext()) {
-            TEAMSPeriod period = tIterator.next();
-            LocalDateTime begin = period.get_start();
-            LocalDateTime end = period.get_end();
-            double duration = period.getDurationInMinutes();
-            // begin > reftime : white bar
-            double delayMinutes = Math.abs(Duration.between(refTime, begin).toSeconds()/60.);
-            if (delayMinutes>0.0) {
-                imgTag = "\t\t\t\t\t<img src=\"off.png\" width=\"$width%\" height=\"20\" title=\"absent(e) de $refTime à $begin\">\n";
-                imgTag = imgTag.replace("$width", "" + (100.*delayMinutes/durationMaxMinutes));
-                imgTag = imgTag.replace("$refTime", refTime.toString());
-                imgTag = imgTag.replace("$begin", begin.toString());
-                html += imgTag;
-            }
-            // green bar for the current period
-            imgTag = "\t\t\t\t\t<img src=\"on.png\" width=\"$width%\" height=\"20\" title=\"connecté(e) de $refTime à $begin\">\n";
-            imgTag = imgTag.replace("$width", "" + (100.*duration/durationMaxMinutes));
-            imgTag = imgTag.replace("$refTime", begin.toString());
-            imgTag = imgTag.replace("$begin", end.toString());
-            html += imgTag;
-            refTime = end;
-        }
-        // last period aligned on end time ?
-        Duration delay = Duration.between(refTime, endTime);
-        double delayMinutes = Math.abs(delay.toSeconds()/60.);
-        if (delayMinutes>0.0) {
-            imgTag = "\t\t\t\t\t<img src=\"off.png\" width=\"$width%\" height=\"20\" title=\"absent(e) de $refTime à $begin\">\n";
-            imgTag = imgTag.replace("$width", "" + (100.*delayMinutes/durationMaxMinutes));
-            imgTag = imgTag.replace("$refTime", refTime.toString());
-            imgTag = imgTag.replace("$begin", endTime.toString());
-            html += imgTag;
-        }
+        html += "</div> \n </body> \n </html>";
         return html;
     }
 }

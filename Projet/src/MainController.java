@@ -18,10 +18,11 @@ public class MainController {
         File selectedFile = fileChooser.showOpenDialog(null);
 
         // process the file, and limit periods to given time interval
-        var teamsProcessor = new TEAMSProcessor(selectedFile,"19/01/2021 à 10:15:00", "19/01/2021 à 11:45:00");
-        teamsProcessor.setSorter(new SorterDuration());
-        teamsProcessor.sort();
+        // FACTORY
+        var teamsProcessor = new TEAMSProcessor(selectedFile,"19/01/2021 à 10:15:00", "19/01/2021 à 11:45:00", new DurationSorter());
         teamsProcessor.setDisplayer(new DisplayerHTML());
+        teamsProcessor.setSorter(new IdSorter());
+        teamsProcessor.sort();
 
         DataExtractor dataExtractor = null;
 
@@ -36,8 +37,14 @@ public class MainController {
         }
 
         People.dataExtractor = dataExtractor;
+/*
+        var allpeople = teamsProcessor.get_allpeople();
+        for (People people : allpeople) {
+            System.out.println( people );
+        }
+*/
 
-        teamsProcessor.display();
+        System.out.println( teamsProcessor.display() );
 
     }
 }

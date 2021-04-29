@@ -31,6 +31,7 @@ public class TEAMSAttendanceListAnalyzer {
                         person.addPeriod(action, instant);
                         this._peopleList.replace(identite,person);
                     } else {
+                        // FACTORY
                         People person = new People(identite);
                         person.addPeriod(action, instant);
                         this._peopleList.put(identite, person);
@@ -46,6 +47,7 @@ public class TEAMSAttendanceListAnalyzer {
 
     public void setStartAndStop(String start, String stop) {
         Collection<People> allpeople = _peopleList.values();
+        // ITERATOR
         Iterator<People> iterator = allpeople.iterator();
         while (iterator.hasNext()) {
             People person = iterator.next();

@@ -1,6 +1,7 @@
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class TEAMSProcessor {
@@ -12,7 +13,7 @@ public class TEAMSProcessor {
     private Displayer displayer;
     private Sorter sorter;
 
-    public TEAMSProcessor(File _file, String _start, String _stop) {
+    public TEAMSProcessor(File _file, String _start, String _stop, Sorter sorter) {
         /*
          csv file to read
          start time of the course
@@ -21,14 +22,18 @@ public class TEAMSProcessor {
         this._startTime = _start;
         this._endTime = _stop;
 
+        this.sorter = sorter;
+
         // load CSV file
         this._fileName = _file.getName();
+        // FACTORY
         var teamsFile = new TEAMSAttendanceList(_file);
 
         // filter to extract data for each people
         var lines = teamsFile.get_attlist();
         if (lines != null) {
             // convert lines in data structure with people & periods
+            // FACTORY
             var filter = new TEAMSAttendanceListAnalyzer(lines);
             // cut periods before start time and after end time
             filter.setStartAndStop(_start, _stop);
