@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.List;
 
 public abstract class Extractor {
     protected Extractor extractor;
@@ -7,5 +8,5 @@ public abstract class Extractor {
         extractor = newExtractor;
     }
 
-    public abstract HashMap<String, String> getData(People people);
+    public abstract List<String> getData();
 }

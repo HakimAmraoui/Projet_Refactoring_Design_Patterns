@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Attendance Report
+        </title>
+        <link rel="stylesheet" media="all" href="visu.css">
+    </head>
+    <body>
+        <h1>
+            Rapport de connexion
+        </h1>
+
+        <div id="blockid">
+            <table>
+                <tr>
+                    <th>Date :</th>
+                    <td>2021-04-30</td>
+                </tr>
+                <tr>
+                    <th>Heure début :</th>
+                    <td>19/01/2021 à 09:58:51</td>
+                </tr>
+                <tr>
+                    <th>Heure fin :</th>
+                    <td>19/01/2021 à 11:55:30</td>
+                </tr>
+                <tr>
+                    <th>Cours :</th>
+                    <td>demofile</td>
+                </tr>
+                <tr>
+                    <th>Fichier analysé :</th>
+                    <td>demofile.csv</td>
+                </tr>
+                <tr>
+                    <th>Nombre de connectés :</th>
+                    <td>31</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Durées de connexion</h2>
+
+        <p>Pour chaque personne ci-dessous, on retrouve son temps total de connexion sur la plage déclarée du cours, ainsi qu'un graphe qui indique les périodes de connexion (en vert) et d'absence de connexion (en blanc). En pointant la souris sur une zone, une bulle affiche les instants de début et de fin de période.</p>
+
+        <div id="blockpeople">
+            <div class="datapeople">
+				<div class="name">
+					Prenom1 Nom1
+				</div>
+				<div class="timebar">
+					<img src="on.png" width="100.0%" height="20" title="connecté(e) de 2021-01-19T09:58:51 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					117
+				</div>
+				<div class="percentd">
+					100%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom10 Nom10
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.529075582226032%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:02:58">
+					<img src="on.png" width="89.9271324474925%" height="20" title="connecté(e) de 2021-01-19T10:02:58 à 2021-01-19T11:47:52">
+					<img src="off.png" width="6.543791970281469%" height="20" title="absent(e) de 2021-01-19T11:47:52 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					105
+				</div>
+				<div class="percentd">
+					90%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom11 Nom11
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.800542934704958%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:17">
+					<img src="on.png" width="95.95656522360338%" height="20" title="connecté(e) de 2021-01-19T10:03:17 à 2021-01-19T11:55:13">
+					<img src="off.png" width="0.24289184169167022%" height="20" title="absent(e) de 2021-01-19T11:55:13 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					112
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom12 Nom12
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.814830690098585%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:18">
+					<img src="on.png" width="96.18516930990141%" height="20" title="connecté(e) de 2021-01-19T10:03:18 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					112
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom13 Nom13
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.8434062008858403%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:20">
+					<img src="on.png" width="95.81368766966709%" height="20" title="connecté(e) de 2021-01-19T10:03:20 à 2021-01-19T11:55:06">
+					<img src="off.png" width="0.34290612944706383%" height="20" title="absent(e) de 2021-01-19T11:55:06 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					112
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom14 Nom14
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.986283754822118%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:30">
+					<img src="on.png" width="95.55650807258179%" height="20" title="connecté(e) de 2021-01-19T10:03:30 à 2021-01-19T11:54:58">
+					<img src="off.png" width="0.45720817259608515%" height="20" title="absent(e) de 2021-01-19T11:54:58 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom15 Nom15
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.029147021003%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:33">
+					<img src="on.png" width="95.51364480640092%" height="20" title="connecté(e) de 2021-01-19T10:03:33 à 2021-01-19T11:54:58">
+					<img src="off.png" width="0.45720817259608515%" height="20" title="absent(e) de 2021-01-19T11:54:58 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom16 Nom16
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.043434776396628%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:34">
+					<img src="on.png" width="95.67081011573082%" height="20" title="connecté(e) de 2021-01-19T10:03:34 à 2021-01-19T11:55:10">
+					<img src="off.png" width="0.28575510787255315%" height="20" title="absent(e) de 2021-01-19T11:55:10 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					112
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom17 Nom17
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.086298042577511%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:37">
+					<img src="on.png" width="95.37076725246463%" height="20" title="connecté(e) de 2021-01-19T10:03:37 à 2021-01-19T11:54:52">
+					<img src="off.png" width="0.542934704957851%" height="20" title="absent(e) de 2021-01-19T11:54:52 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom18 Nom18
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.172024574939276%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:43">
+					<img src="on.png" width="95.82797542506073%" height="20" title="connecté(e) de 2021-01-19T10:03:43 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					112
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom19 Nom19
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.314902128875553%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:53">
+					<img src="on.png" width="95.38505500785826%" height="20" title="connecté(e) de 2021-01-19T10:03:53 à 2021-01-19T11:55:09">
+					<img src="off.png" width="0.30004286326618085%" height="20" title="absent(e) de 2021-01-19T11:55:09 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom2 Nom2
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="1.5430775825117873%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:00:39">
+					<img src="on.png" width="97.99971424489212%" height="20" title="connecté(e) de 2021-01-19T10:00:39 à 2021-01-19T11:54:58">
+					<img src="off.png" width="0.45720817259608515%" height="20" title="absent(e) de 2021-01-19T11:54:58 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					114
+				</div>
+				<div class="percentd">
+					97%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom20 Nom20
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.343477639662808%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:03:55">
+					<img src="on.png" width="95.24217745392198%" height="20" title="connecté(e) de 2021-01-19T10:03:55 à 2021-01-19T11:55:01">
+					<img src="off.png" width="0.41434490641520216%" height="20" title="absent(e) de 2021-01-19T11:55:01 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom21 Nom21
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.500642948992713%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:06">
+					<img src="on.png" width="95.0421488784112%" height="20" title="connecté(e) de 2021-01-19T10:04:06 à 2021-01-19T11:54:58">
+					<img src="off.png" width="0.45720817259608515%" height="20" title="absent(e) de 2021-01-19T11:54:58 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom22 Nom22
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.6006572367481064%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:13">
+					<img src="on.png" width="94.89927132447492%" height="20" title="connecté(e) de 2021-01-19T10:04:13 à 2021-01-19T11:54:55">
+					<img src="off.png" width="0.5000714387769681%" height="20" title="absent(e) de 2021-01-19T11:54:55 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom23 Nom23
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.629232747535362%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:15">
+					<img src="on.png" width="68.20974424917844%" height="20" title="connecté(e) de 2021-01-19T10:04:15 à 2021-01-19T11:23:49">
+					<img src="off.png" width="5.000714387769681%" height="20" title="absent(e) de 2021-01-19T11:23:49 à 2021-01-19T11:29:39">
+					<img src="on.png" width="21.831690241463065%" height="20" title="connecté(e) de 2021-01-19T11:29:39 à 2021-01-19T11:55:07">
+					<img src="off.png" width="0.3286183740534362%" height="20" title="absent(e) de 2021-01-19T11:55:07 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					105
+				</div>
+				<div class="percentd">
+					90%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom24 Nom24
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.700671524503501%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:20">
+					<img src="on.png" width="39.53421917416774%" height="20" title="connecté(e) de 2021-01-19T10:04:20 à 2021-01-19T10:50:27">
+					<img src="off.png" width="1.3716245177882553%" height="20" title="absent(e) de 2021-01-19T10:50:27 à 2021-01-19T10:52:03">
+					<img src="on.png" width="54.3934847835405%" height="20" title="connecté(e) de 2021-01-19T10:52:03 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					110
+				</div>
+				<div class="percentd">
+					94%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom25 Nom25
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.729247035290755%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:22">
+					<img src="on.png" width="94.84212030290041%" height="20" title="connecté(e) de 2021-01-19T10:04:22 à 2021-01-19T11:55">
+					<img src="off.png" width="0.4286326618088298%" height="20" title="absent(e) de 2021-01-19T11:55 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom26 Nom26
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.729247035290755%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:22">
+					<img src="on.png" width="94.8849835690813%" height="20" title="connecté(e) de 2021-01-19T10:04:22 à 2021-01-19T11:55:03">
+					<img src="off.png" width="0.3857693956279468%" height="20" title="absent(e) de 2021-01-19T11:55:03 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom27 Nom27
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="4.757822546078011%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:24">
+					<img src="on.png" width="95.24217745392198%" height="20" title="connecté(e) de 2021-01-19T10:04:24 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom28 Nom28
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="5.115016430918702%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:04:49">
+					<img src="on.png" width="55.750821545935125%" height="20" title="connecté(e) de 2021-01-19T10:04:49 à 2021-01-19T11:09:51">
+					<img src="off.png" width="39.13416202314616%" height="20" title="absent(e) de 2021-01-19T11:09:51 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					65
+				</div>
+				<div class="percentd">
+					55%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom29 Nom29
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="5.272181740248607%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:05">
+					<img src="on.png" width="94.72781825975139%" height="20" title="connecté(e) de 2021-01-19T10:05 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					111
+				</div>
+				<div class="percentd">
+					95%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom3 Nom3
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="1.6002286040862979%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:00:43">
+					<img src="on.png" width="98.01400200028574%" height="20" title="connecté(e) de 2021-01-19T10:00:43 à 2021-01-19T11:55:03">
+					<img src="off.png" width="0.3857693956279468%" height="20" title="absent(e) de 2021-01-19T11:55:03 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					114
+				</div>
+				<div class="percentd">
+					97%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom30 Nom30
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="5.586512358908415%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:05:22">
+					<img src="on.png" width="94.19917131018717%" height="20" title="connecté(e) de 2021-01-19T10:05:22 à 2021-01-19T11:55:15">
+					<img src="off.png" width="0.2143163309044149%" height="20" title="absent(e) de 2021-01-19T11:55:15 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					110
+				</div>
+				<div class="percentd">
+					94%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom31 Nom31
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="5.600800114302043%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:05:23">
+					<img src="on.png" width="94.39919988569795%" height="20" title="connecté(e) de 2021-01-19T10:05:23 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					110
+				</div>
+				<div class="percentd">
+					94%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom4 Nom4
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="1.8859837119588514%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:01:03">
+					<img src="on.png" width="97.81397342477496%" height="20" title="connecté(e) de 2021-01-19T10:01:03 à 2021-01-19T11:55:09">
+					<img src="off.png" width="0.30004286326618085%" height="20" title="absent(e) de 2021-01-19T11:55:09 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					114
+				</div>
+				<div class="percentd">
+					97%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom5 Nom5
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="2.086012287469638%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:01:17">
+					<img src="on.png" width="97.65680811544507%" height="20" title="connecté(e) de 2021-01-19T10:01:17 à 2021-01-19T11:55:12">
+					<img src="off.png" width="0.25717959708529786%" height="20" title="absent(e) de 2021-01-19T11:55:12 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					114
+				</div>
+				<div class="percentd">
+					97%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom6 Nom6
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="2.5717959708529787%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:01:51">
+					<img src="on.png" width="1.043006143734819%" height="20" title="connecté(e) de 2021-01-19T10:01:51 à 2021-01-19T10:03:04">
+					<img src="off.png" width="0.6143734819259894%" height="20" title="absent(e) de 2021-01-19T10:03:04 à 2021-01-19T10:03:47">
+					<img src="on.png" width="78.85412201743107%" height="20" title="connecté(e) de 2021-01-19T10:03:47 à 2021-01-19T11:35:46">
+					<img src="off.png" width="2.414630661523075%" height="20" title="absent(e) de 2021-01-19T11:35:46 à 2021-01-19T11:38:35">
+					<img src="on.png" width="14.502071724532076%" height="20" title="connecté(e) de 2021-01-19T11:38:35 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					110
+				</div>
+				<div class="percentd">
+					94%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom7 Nom7
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="2.87183883411916%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:02:12">
+					<img src="on.png" width="96.89955707958279%" height="20" title="connecté(e) de 2021-01-19T10:02:12 à 2021-01-19T11:55:14">
+					<img src="off.png" width="0.22860408629804257%" height="20" title="absent(e) de 2021-01-19T11:55:14 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					113
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom8 Nom8
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.1718816973853405%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:02:33">
+					<img src="on.png" width="70.13859122731817%" height="20" title="connecté(e) de 2021-01-19T10:02:33 à 2021-01-19T11:24:22">
+					<img src="off.png" width="26.68952707529647%" height="20" title="absent(e) de 2021-01-19T11:24:22 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					82
+				</div>
+				<div class="percentd">
+					70%
+				</div>
+
+            </div>
+            <div class="datapeople">
+				<div class="name">
+					Prenom9 Nom9
+				</div>
+				<div class="timebar">
+					<img src="off.png" width="3.3004714959279897%" height="20" title="absent(e) de 2021-01-19T09:58:51 à 2021-01-19T10:02:42">
+					<img src="on.png" width="96.25660808686955%" height="20" title="connecté(e) de 2021-01-19T10:02:42 à 2021-01-19T11:54:59">
+					<img src="off.png" width="0.4429204172024575%" height="20" title="absent(e) de 2021-01-19T11:54:59 à 2021-01-19T11:55:30">
+				</div>
+				<div class="duration">
+					112
+				</div>
+				<div class="percentd">
+					96%
+				</div>
+
+            </div>
+
+        </div>
+    </body>
+</html>

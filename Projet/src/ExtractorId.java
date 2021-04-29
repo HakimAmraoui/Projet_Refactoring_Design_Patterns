@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ExtractorId extends Extractor {
 
@@ -7,15 +9,15 @@ public class ExtractorId extends Extractor {
     }
 
     @Override
-    public HashMap<String, String> getData(People people) {
-        HashMap<String, String> map;
+    public List<String> getData() {
+        List<String> data;
         if (extractor == null) {
-            map = new HashMap<String, String>();
+            data = new ArrayList<String>();
         } else {
-            map = extractor.getData(people);
+            data = extractor.getData();
         }
-        map.put("id", people.get_id());
-        return map;
+        data.add("id");
+        return data;
     }
     
 }

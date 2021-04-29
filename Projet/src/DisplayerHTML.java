@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class DisplayerHTML extends Displayer {
 
@@ -19,7 +20,7 @@ public class DisplayerHTML extends Displayer {
     }
 
     @Override
-    public String display(Collection<People> _allpeople, String _fileName, String _courseName, String _startTime, String _endTime) {
+    public void display(Collection<People> _allpeople, String _fileName, String _courseName, String _startTime, String _endTime) {
         File htmlTemplateFile = new File("ressources/html/templateHTML.html");
         String htmlString = null;
         try {
@@ -59,24 +60,24 @@ public class DisplayerHTML extends Displayer {
                 e.printStackTrace();
             }
 
-            HashMap<String, String> data = People.getExtractor().getData(people);
+            List<String> data = People.getExtractor().getData();
             String dataPeople = "";
 
-            if (data.containsKey("id")) {
-                String id = data.get("id");
+            if (data.contains("id")) {
+                String id = people.get_id();
                 dataPeople += "\t\t\t\t<div class=\"id\">\n";
                 dataPeople += ("\t\t\t\t\t" + id + "\n");
                 dataPeople += "\t\t\t\t</div>\n";
             }
 
-            if (data.containsKey("name")) {
-                String name = data.get("name");
+            if (data.contains("name")) {
+                String name = people.getName();
                 dataPeople += "\t\t\t\t<div class=\"name\">\n";
                 dataPeople += ("\t\t\t\t\t" + name + "\n");
                 dataPeople += "\t\t\t\t</div>\n";
             }
 
-            if (data.containsKey("time")) {
+            if (data.contains("time")) {
                 dataPeople += "\t\t\t\t<div class=\"timebar\">\n";
                 dataPeople += (timBar(people));
                 dataPeople += "\t\t\t\t</div>\n";
@@ -117,8 +118,6 @@ public class DisplayerHTML extends Displayer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return htmlString;
     }
 
     private String timBar(People people) {

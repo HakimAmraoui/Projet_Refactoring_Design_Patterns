@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ExtractorName extends Extractor {
     public ExtractorName(Extractor newExtractor) {
@@ -6,14 +8,14 @@ public class ExtractorName extends Extractor {
     }
 
     @Override
-    public HashMap<String, String> getData(People people) {
-        HashMap<String, String> map;
+    public List<String> getData() {
+        List<String> data;
         if (extractor == null) {
-            map = new HashMap<String, String>();
+            data = new ArrayList<String>();
         } else {
-            map = extractor.getData(people);
+            data = extractor.getData();
         }
-        map.put("name", people.getName());
-        return map;
+        data.add("name");
+        return data;
     }
 }
