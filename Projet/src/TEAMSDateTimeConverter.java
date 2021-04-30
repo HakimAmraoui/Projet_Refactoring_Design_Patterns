@@ -8,7 +8,6 @@ public class TEAMSDateTimeConverter {
         
         String pattern = "dd/MM/yyyy à HH:mm:ss";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-        // FACTORY
         var _converter = new LocalDateTimeStringConverter(formatter, formatter);
         return _converter.fromString(instant);
     }

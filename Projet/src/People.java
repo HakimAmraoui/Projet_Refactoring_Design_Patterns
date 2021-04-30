@@ -36,7 +36,6 @@ public class People {
     public void addPeriod(String action, String instant) {
 
         if ( action.charAt(0) == 'R' ) {
-            // FACTORY
             TEAMSPeriod period = new TEAMSPeriod(instant);
             this._periodList.add(period);
         } else
@@ -90,14 +89,10 @@ public class People {
     public long getTotalAttendanceDuration() {
         double totalDuration = 0;
 
-        // ITERATOR
         Iterator<TEAMSPeriod> iterator = this._periodList.iterator();
         while(iterator.hasNext()) {
             totalDuration += iterator.next().getDurationInMinutes();
         }
-//        for (TEAMSPeriod period : this._periodList) {
-//            totalDuration += period.getDurationInMinutes();
-//        }
         return Math.round(totalDuration);
     }
 
@@ -124,11 +119,6 @@ public class People {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy");
         return ( this._periodList.getFirst().get_start().format(formatter.withLocale(Locale.FRANCE)) );
     }
-
-    // @Override
-    // public int compareTo(People o) {
-    //     return (int)(this.getTotalAttendanceDuration()-o.getTotalAttendanceDuration());
-    // }
 
     public boolean isOutOfPeriod() {
         return this._periodList.isEmpty();

@@ -9,11 +9,9 @@ public class TEAMSPeriod {
     private LocalDateTime _end = null;
     private LocalDateTimeStringConverter _converter = null;
 
-    // TODO Simplifier avec classe statique
     public TEAMSPeriod(String _start) {
         String pattern = "dd/MM/yyyy à HH:mm:ss";
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
-        // FACTORY
         this._converter = new LocalDateTimeStringConverter(formatter, formatter);
         this.startAt(_start);
     }
