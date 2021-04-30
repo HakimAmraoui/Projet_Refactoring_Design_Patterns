@@ -10,8 +10,9 @@ public class TEAMSProcessor {
     private String _courseName;
     private String _startTime;
     private String _endTime;
-    private Displayer displayer;
-    private Sorter sorter;
+    private static Displayer displayer;
+    private static Sorter sorter;
+    private static Extractor extractor;
 
     public TEAMSProcessor(File _file, String courseName, String _start, String _stop) {
         this._courseName = courseName;
@@ -54,11 +55,27 @@ public class TEAMSProcessor {
         displayer.display(_allpeople, _fileName, _courseName, _startTime, _endTime);
     }
 
-    public void setDisplayer(Displayer displayer) {
-        this.displayer = displayer;
+    public static Displayer getDisplayer() {
+        return displayer;
     }
 
-    public void setSorter(Sorter sorter) {
-        this.sorter = sorter;
+    public static void setDisplayer(Displayer displayer) {
+        TEAMSProcessor.displayer = displayer;
+    }
+
+    public static Sorter getSorter() {
+        return sorter;
+    }
+
+    public static void setSorter(Sorter sorter) {
+        TEAMSProcessor.sorter = sorter;
+    }
+
+    public static Extractor getExtractor() {
+        return extractor;
+    }
+
+    public static void setExtractor(Extractor extractor) {
+        TEAMSProcessor.extractor = extractor;
     }
 }

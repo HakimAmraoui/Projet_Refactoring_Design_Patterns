@@ -60,7 +60,7 @@ public class DisplayerHTML extends Displayer {
                 e.printStackTrace();
             }
 
-            List<String> data = People.getExtractor().getData();
+            List<String> data = TEAMSProcessor.getExtractor().getData();
             String dataPeople = "";
 
             if (data.contains("id")) {
