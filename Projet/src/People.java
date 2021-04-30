@@ -1,4 +1,5 @@
 import java.time.format.DateTimeFormatter;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Locale;
 
@@ -35,6 +36,7 @@ public class People {
     public void addPeriod(String action, String instant) {
 
         if ( action.charAt(0) == 'R' ) {
+            // FACTORY
             TEAMSPeriod period = new TEAMSPeriod(instant);
             this._periodList.add(period);
         } else
@@ -87,9 +89,15 @@ public class People {
 
     public long getTotalAttendanceDuration() {
         double totalDuration = 0;
-        for (TEAMSPeriod period : this._periodList) {
-            totalDuration += period.getDurationInMinutes();
+
+        // ITERATOR
+        Iterator<TEAMSPeriod> iterator = this._periodList.iterator();
+        while(iterator.hasNext()) {
+            totalDuration += iterator.next().getDurationInMinutes();
         }
+//        for (TEAMSPeriod period : this._periodList) {
+//            totalDuration += period.getDurationInMinutes();
+//        }
         return Math.round(totalDuration);
     }
 
