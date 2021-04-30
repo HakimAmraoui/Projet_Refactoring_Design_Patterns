@@ -5,8 +5,6 @@ import java.util.Locale;
 
 // implements Comparable<People>
 public class People {
-    private static Extractor extractor;
-
     private final String _name;
     private final String _id;
     private String _start;
@@ -134,14 +132,6 @@ public class People {
 
     public boolean isOutOfPeriod() {
         return this._periodList.isEmpty();
-    }
-
-    public static Extractor getExtractor() {
-        return extractor;
-    }
-
-    public static void setExtractor(Extractor extractor) {
-        People.extractor = extractor;
     }
 
 }

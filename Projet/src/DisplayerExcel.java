@@ -56,7 +56,7 @@ public class DisplayerExcel extends Displayer{
 
         LinkedList<Object> emptyLine = new LinkedList<>();
 
-        List<String> peopleData = People.getExtractor().getData();
+        List<String> peopleData = TEAMSProcessor.getExtractor().getData();
         LinkedList<Object> headerLine = new LinkedList<>();
         if (peopleData.contains("id"))
             headerLine.add("Réference");
